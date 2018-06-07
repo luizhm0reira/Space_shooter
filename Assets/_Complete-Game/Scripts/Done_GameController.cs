@@ -29,7 +29,7 @@ public class Done_GameController : MonoBehaviour
         gameOverText.text = "";
         score = 0;
         UpdateScore();
-        StartCoroutine(SpawnWaves());
+        //StartCoroutine(SpawnWaves());
         Toggle();
     }
 

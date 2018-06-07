@@ -25,7 +25,7 @@ public class Done_PlayerController : MonoBehaviour
     private Quaternion calibrationQuaternion;
 	public Quaternion shotL;
 	public Quaternion shotR;
-	public Quaternion shotO;
+	
 
 
     void Start () {
@@ -37,7 +37,7 @@ public class Done_PlayerController : MonoBehaviour
 		if (areaButton.CanFire () && Time.time > nextFire) 
 		{
 			nextFire = Time.time + fireRate;
-			shotO = shotSpawn.rotation;
+			//shotO = shotSpawn.rotation;
 
 
             Shots(shot, shotSpawn);
@@ -86,7 +86,7 @@ public class Done_PlayerController : MonoBehaviour
         Vector3 movement = new Vector3 (direction.x, 0.0f, direction.y);
 		Rigidbody rb = GetComponent<Rigidbody>();
         rb.velocity = movement * speed;
-        
+         
         rb.position = new Vector3
         (
             Mathf.Clamp (rb.position.x, boundary.xMin, boundary.xMax), 
