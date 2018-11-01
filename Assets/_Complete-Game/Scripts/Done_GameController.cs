@@ -1,10 +1,11 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
 public class Done_GameController : MonoBehaviour
 {
+    public GameObject ship;
     public GameObject[] hazards;
     public Vector3 spawnValues;
     public int hazardCount;
@@ -23,13 +24,15 @@ public class Done_GameController : MonoBehaviour
 
     void Start()
     {
+        GameObject player  = (GameObject)Instantiate(ship, transform.position, transform.rotation);
+
         gameOver = false;
        // restart = false;
         restartText.text = "Restart";
         gameOverText.text = "";
         score = 0;
         UpdateScore();
-        //StartCoroutine(SpawnWaves());
+        StartCoroutine(SpawnWaves());
         Toggle();
     }
 
