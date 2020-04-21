@@ -5,31 +5,33 @@ using System.Collections;
 
 public class SimpleTouchAreaButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
     
-    private bool touched;
+    public bool touched;
     private int pointerID;
-    private bool canFire; 
+    private bool canFire;
+    public Color pressed;
+    private Color color;
     
-    void Awake () {
+    void Awake ()
+    {
         touched = false;
-    }
-    
+        color = GetComponent<Image>().color;
+    }    
     public void OnPointerDown (PointerEventData data) {
         if (!touched) {
             touched = true;
             pointerID = data.pointerId;
             canFire = true;
+            GetComponent<Image>().color = pressed;
         }
-    }
-    
+    }    
     public void OnPointerUp (PointerEventData data) {
         if (data.pointerId == pointerID) {
             canFire = false;
             touched = false;
+            GetComponent<Image>().color = color;
         }
     }
-
     public bool CanFire () {
         return canFire;
     }
-
 }

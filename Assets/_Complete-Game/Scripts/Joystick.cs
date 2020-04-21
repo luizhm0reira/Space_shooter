@@ -12,6 +12,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
     [Header("Components")]
     public RectTransform background;
     public RectTransform handle;
+    public RectTransform roll;
 
     public float Horizontal { get { return inputVector.x; } }
     public float Vertical { get { return inputVector.y; } }

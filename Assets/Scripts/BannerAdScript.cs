@@ -5,10 +5,10 @@ using UnityEngine.Advertisements;
 public class BannerAdScript : MonoBehaviour
 {
 
-    public string gameId = "3488728";
+    public string gameId;
     public string placementId = "bannerPlacement";
     public bool testMode = true;
-    //public BannerPosition bannerPosition = BannerPosition.BOTTOM_CENTER;
+    public BannerPosition bannerPosition = BannerPosition.BOTTOM_CENTER;
 
     void Start()
     {
@@ -22,7 +22,7 @@ public class BannerAdScript : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
         }        
-        //Advertisement.Banner.SetPosition(bannerPosition);
-        //Advertisement.Banner.Show(placementId);
+        Advertisement.Banner.SetPosition(bannerPosition);
+        Advertisement.Banner.Show(placementId);
     }
 }
